@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Human Rights Around the World</title>
+  <style>
+    :root{--bg:#0f1724;--card:#111a2b;--accent:#38bdf8;--text:#e6eef8}
+    *{box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{margin:0;background:linear-gradient(180deg,#071024 0%,#0f1724 60%);color:var(--text);min-height:100vh;overflow-x:hidden}
+    header{padding:22px 20px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.04);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+    h1{margin:0;font-size:22px}
+    nav button{background:rgba(255,255,255,0.06);border:none;color:var(--text);padding:8px 14px;margin-inline:4px;border-radius:10px;cursor:pointer;transition:0.3s}
+    nav button:hover{background:var(--accent)}.container{max-width:1100px;margin:auto;padding:24px}
+.hero{text-align:center;padding:40px 20px}
+.hero h2{font-size:28px;margin-bottom:10px;color:#fff}
+.hero p{opacity:.9;font-size:15px;line-height:1.7}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:40px}
+.card{background:var(--card);padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;transition:.4s}
+.card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.5)}
+.card h3{margin-top:0;color:var(--accent)}
+.card p{font-size:14px;line-height:1.6}
+
+.team{margin-top:60px;text-align:center}
+.team h2{color:var(--accent);margin-bottom:20px}
+.members{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;justify-items:center}
+.member{background:var(--card);padding:16px;border-radius:12px;width:180px;transition:transform .4s, box-shadow .4s}
+.member:hover{transform:translateY(-8px);box-shadow:0 10px 25px rgba(0,0,0,0.4)}
+
+footer{text-align:center;padding:20px;opacity:.7;font-size:13px;margin-top:40px}
+
+.fade{opacity:0;transform:translateY(20px);transition:all 1s ease}
+.fade.visible{opacity:1;transform:none}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Human Rights</h1>
+    <nav>
+      <button onclick="scrollToSection('countries')">View Countries</button>
+      <button onclick="scrollToSection('team')">Our Team</button>
+    </nav>
+  </header>  <section class="hero">
+    <h2>Overview of Human Rights Around the World</h2>
+    <p>Human rights are the basic rights and freedoms that belong to every person in the world, from birth until death. They apply regardless of nationality, sex, religion, or any other status. The modern concept of human rights began after World War II, when the <strong>United Nations</strong> adopted the <strong>Universal Declaration of Human Rights (UDHR)</strong> in <strong>1948</strong>. It was mainly drafted by <strong>Eleanor Roosevelt</strong> and a global team of thinkers and diplomats.</p>
+  </section>  <section id="countries" class="container">
+    <div class="grid">
+      <div class="card fade">
+        <h3>Egypt 🇪🇬</h3>
+        <p>Egypt has made progress in improving access to education and healthcare, but challenges remain in freedom of expression and political participation. Ongoing national strategies aim to balance security with personal freedoms.</p>
+      </div>
+      <div class="card fade">
+        <h3>United States 🇺🇸</h3>
+        <p>The U.S. is known for strong civil liberties, but struggles with racial inequality, police violence, and immigration rights. Reforms and advocacy groups continue to push for social justice and equal treatment for all citizens.</p>
+      </div>
+      <div class="card fade">
+        <h3>China 🇨🇳</h3>
+        <p>China prioritizes economic growth and social stability, but faces international criticism regarding freedom of speech, surveillance, and treatment of minorities. Efforts to modernize its legal system continue to evolve.</p>
+      </div>
+      <div class="card fade">
+        <h3>African Nations 🌍</h3>
+        <p>Across Africa, progress in human rights varies widely. Some countries have achieved major democratic reforms, while others face challenges from conflict and corruption. Regional organizations are working toward justice and equality.</p>
+      </div>
+      <div class="card fade">
+        <h3>European Union 🇪🇺</h3>
+        <p>The EU emphasizes human dignity, democracy, and rule of law. It has strong institutions to protect freedoms, though issues like migration and privacy still pose challenges.</p>
+      </div>
+      <div class="card fade">
+        <h3>South America 🌎</h3>
+        <p>Many South American countries have strengthened democracy after decades of dictatorship. Human rights efforts now focus on reducing poverty, violence, and corruption.</p>
+      </div>
+    </div><h2 style="margin-top:50px;text-align:center;color:var(--accent)">How to Solve Human Rights Problems</h2>
+<p style="text-align:center;max-width:700px;margin:auto;opacity:.9">To improve human rights globally, countries and organizations should:
+  <ul style="max-width:700px;margin:auto;line-height:1.8;font-size:14px">
+    <li>Strengthen international cooperation and accountability systems.</li>
+    <li>Invest in education and awareness about human rights values.</li>
+    <li>Encourage free and independent media to report violations.</li>
+    <li>Support NGOs and social movements advocating for equality and justice.</li>
+    <li>Ensure fair trials and equal access to law and protection.</li>
+  </ul>
+</p>
+
+  </section>  <section id="team" class="container team fade">
+    <h2>Our Team</h2>
+    <div class="members">
+      <div class="member">Hanen Nassar</div>
+      <div class="member">Abdallah Hossam</div>
+      <div class="member">Rahma El_Hennawy</div>
+      <div class="member">Basma Mohamed</div>
+      <div class="member">Habiba Abo Lila</div>
+      <div class="member">Mohamed Soliman</div>
+      <div class="member">Ahmed Khalil</div>
+      <div class="member">Hamdon Basher</div>
+      <div class="member">Abdelrahman Osama</div>
+      <div class="member">Basmala Mostafa</div>
+    </div>
+  </section>  <footer>
+    © 2025 — Created by <strong>Hanen Nassar</strong>, <strong>Abdallah Hossam</strong>, <strong>Rahma El_Hennawy</strong>, <strong>Basma Mohamed</strong>, <strong>Habiba Abo Lila</strong>, <strong>Mohamed Soliman</strong>, <strong>Ahmed Khalil</strong>, and <strong>Hamdon Basher</strong>, <strong>Abdelrahman Osama</strong>, and <strong>Basmala Mostafa</strong>. All rights reserved.
+  </footer>  <script>
+    const items=document.querySelectorAll('.fade');
+    function reveal(){items.forEach(el=>{const rect=el.getBoundingClientRect();if(rect.top<window.innerHeight-100)el.classList.add('visible')});}
+    window.addEventListener('scroll',reveal);reveal();
+
+    function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+  </script></body>
+</html>
