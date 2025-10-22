@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Human Rights Around the World</title>
+  <style>
+    :root {
+      --bg1: #0a0f1f;
+      --bg2: #1a2238;
+      --card: #111a2b;
+      --accent: #38bdf8;
+      --text: #e6eef8;
+    }
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      background: linear-gradient(120deg, var(--bg1), var(--bg2));
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      animation: bgShift 10s ease-in-out infinite alternate;
+    }
+    @keyframes bgShift {
+      0% { background: linear-gradient(120deg, var(--bg1), var(--bg2)); }
+      100% { background: linear-gradient(120deg, #101830, #0a0f1f); }
+    }
+
+    header {
+      padding: 22px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: background 0.3s;
+    }
+    header:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    nav button {
+      background: rgba(255,255,255,0.07);
+      border: none;
+      color: var(--text);
+      padding: 8px 14px;
+      margin-inline: 4px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    nav button:hover {
+      background: var(--accent);
+      color: #000;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(56,189,248,0.05), transparent 70%);
+      animation: moveGlow 20s linear infinite;
+    }
+    @keyframes moveGlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero h2 {
+      font-size: 32px;
+      margin-bottom: 14px;
+      color: #fff;
+      animation: fadeInDown 1s ease forwards;
+    }
+    .hero p {
+      opacity: 0;
+      font-size: 15px;
+      line-height: 1.7;
+      animation: fadeInUp 1.3s ease forwards;
+      animation-delay: 0.3s;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: none;}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: none;}
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+      transition: all .4s ease;
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(56,189,248,0.1), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .card:hover::before {
+      opacity: 1;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    .card p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .team {
+      margin-top: 60px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 1s ease;
+    }
+    .team.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .team h2 {
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+    .member {
+      background: var(--card);
+      padding: 16px;
+      border-radius: 12px;
+      width: 180px;
+      transition: all .4s ease;
+    }
+    .member:hover {
+      transform: translateY(-8px) rotate(-1deg);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      opacity: .7;
+      font-size: 13px;
+      margin-top: 50px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Human Rights</h1>
+    <nav>
+      <button onclick="scrollToSection('countries')">View Countries</button>
+      <button onclick="scrollToSection('team')">Our Team</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Overview of Human Rights Around the World</h2>
+    <p>Human rights are the basic rights and freedoms that belong to every person in the world, from birth until death. They apply regardless of nationality, sex, religion, or any other status. The modern concept of human rights began after World War II, when the <strong>United Nations</strong> adopted the <strong>Universal Declaration of Human Rights (UDHR)</strong> in <strong>1948</strong>.</p>
+  </section>
+
+  <section id="countries" class="container">
+    <div class="grid">
+      <div class="card"><h3>Egypt 🇪🇬</h3><p>Egypt has made progress in improving access to education and healthcare, but challenges remain in freedom of expression and political participation.</p></div>
+      <div class="card"><h3>United States 🇺🇸</h3><p>The U.S. is known for strong civil liberties, but struggles with racial inequality, police violence, and immigration rights.</p></div>
+      <div class="card"><h3>China 🇨🇳</h3><p>China prioritizes economic growth and social stability, but faces international criticism regarding freedom of speech and surveillance.</p></div>
+      <div class="card"><h3>African Nations 🌍</h3><p>Across Africa, progress in human rights varies widely. Some countries have achieved major reforms, while others face challenges from conflict.</p></div>
+      <div class="card"><h3>European Union 🇪🇺</h3><p>The EU emphasizes human dignity, democracy, and rule of law, with strong institutions to protect freedoms.</p></div>
+      <div class="card"><h3>South America 🌎</h3><p>Many South American countries have strengthened democracy after decades of dictatorship.</p></div>
+    </div>
+  </section>
+
+  <section id="team" class="container team">
+    <h2>Our Team</h2>
+    <div class="members">
+      <div class="member">Hanen Nassar</div>
+      <div class="member">Abdallah Hossam</div>
+      <div class="member">Rahma El_Hennawy</div>
+      <div class="member">Basma Mohamed</div>
+      <div class="member">Habiba Abo Lila</div>
+      <div class="member">Mohamed Soliman</div>
+      <div class="member">Ahmed Khalil</div>
+      <div class="member">Hamdon Basher</div>
+      <div class="member">Abdelrahman Osama</div>
+      <div class="member">Basmala Mostafa</div>
+      <div class="member">Habiba Mohamed</div>
+      <div class="member">Nedal El Khatib</div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 — Created by the Human Rights Team. All rights reserved.
+  </footer>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+    const team = document.querySelector('.team');
+
+    function revealOnScroll() {
+      cards.forEach(c => {
+        const rect = c.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) c.classList.add('visible');
+      });
+      const teamRect = team.getBoundingClientRect();
+      if (teamRect.top < window.innerHeight - 100) team.classList.add('visible');
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
